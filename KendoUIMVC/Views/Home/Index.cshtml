@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+@section script{
+    <script>
+        $(function () {
+            seajs.use('index/home', function (home) {
+                home.init();
+            });
+        });
+    </script>
+}
+<div class="k-content" style="width: 1000px; height: 500px;">
+    <div id="horizontal" style="height: 100%; width: 100%;">
+        <div id="left-pane">
+            <div class="pane-content">
+                <ul id="treeview">
+                    <li data-expanded="true">demo list
+                        <ul>
+                            <li><a href="javascript:void(0);" id="formDemo">form demo</a></li>
+                            <li><a href="javascript:void(0);" id="mvvmDemo">MVVM demo</a></li>
+                            <li><a href="javascript:void(0);" id="mvvmadDemo">MVVM DS demo</a></li>
+                            <li><a href="javascript:void(0);" id="gridDemo">grid demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="right-pane">
+            <div class="pane-content">
+                <iframe id="contentFrame" scrolling="no" frameborder="0" width="100%" height="490px"></iframe>
+            </div>
+        </div>
+    </div>
+</div>

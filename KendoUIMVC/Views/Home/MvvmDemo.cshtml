@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Form Demo";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+@section script{
+    <script>
+        $(function () {
+            seajs.use('index/mvvm', function (form) {
+                form.init();
+            });
+        });
+    </script>
+}
+<div id="mvvmMain" class="k-header formMain">
+    <form id="mvvmForm">
+    <ul id="menu">
+        <li>
+            <label for="userName" class="required">
+                用户名：</label>
+            <input id="userName" name="userName" class="k-textbox" type="text" placeholder="最小6位用户名"
+                required validationmessage="请输入用户名" data-bind="value:userName" />
+        </li>
+        <li>
+            <label for="password">
+                密&nbsp;&nbsp;码：</label>
+            <input id="password" name="password" class="k-textbox" type="password" data-bind="value:password"
+                required validationmessage="请输入密码" /></li>
+        <li>
+            <label for="sex">
+                性&nbsp;&nbsp;别：</label>
+            <input id="sex" name="sex" style="width: 80px;" data-role="dropdownlist" data-bind="source:sexArray,value:sex"
+                data-text-field="name" data-value-field="value" />
+        </li>
+        <li>
+            <label for="birthday">
+                生&nbsp;&nbsp;日：</label>
+            <input id="birthday" name="birthday" data-role="datepicker" data-bind="value:birthday"
+                data-format="yyyy-MM-dd" />
+        </li>
+        <li>
+            <label for="weight">
+                体&nbsp;&nbsp;重：</label>
+            <input id="weight" name="weight" type="number" value="66" style="width: 80px;" data-role='numerictextbox'
+                data-bind="value:weight" /></li>
+        <li>
+            <label for="email">
+                Email:</label>
+            <input id="email" name="email" type="email" style="width: 230px;" class="k-textbox"
+                data-bind="value:email" placeholder="e.g. myname@example.net" required data-email-msg="Email格式无效" />
+        </li>
+    </ul>
+    <div class="buttonPane">
+        <button class="k-button" id="confirm" type="button" data-bind="click:confirm">
+            确定</button>
+        <button class="k-button" id="cancel" type="button">
+            取消</button>
+    </div>
+    </form>
+</div>
+<div id="mvvmMain2" class="k-header formMain">
+    <div id="result">
+    </div>
+</div>
