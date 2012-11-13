@@ -43,7 +43,7 @@ namespace KendoUIMVC.Controllers
         }
 
         [HttpGet]
-        public JsonResult User(int id)
+        public JsonResult User(int id,string Name)
         {
             return Json(new User() { Id = id, Name = string.Format("junwei.胡_{0}", id), Birthday = new DateTime(1968, 9, 21), Password = "123", Sex = true, Weight = 66d, Email = "junwei.hu@xquant.com" }, JsonRequestBehavior.AllowGet);
         }
