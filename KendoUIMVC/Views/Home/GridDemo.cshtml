@@ -2,17 +2,52 @@
     ViewBag.Title = "Grid Demo";
     Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
-
 @section script{
-<script>
-    $(function () {
-        
-    });
-</script>
-}
+    <script>
+        $(function () {
+            $('#container').kendoSplitter({
+                orientation: 'vertical',
+                panes: [
+                    { collapsible: true, size: '300px' },
+                    { collapsible: true, size: '260px' }
+                ]
+            });
 
+            $('#v1').kendoSplitter({
+                orientation: 'horizontal',
+                panes: [
+                    { collapsible: true},
+                    { collapsible: true }
+                ]
+            });
+
+            $('#v2').kendoSplitter({
+                orientation: 'horizontal',
+                panes: [
+                    { collapsible: true },
+                    { collapsible: true }
+                ]
+            });
+        });
+    </script>
+}
 <div id="container">
-<div id="v1">
-    <div id=""></div>
-</div>
+    <div id="v1">
+        <div id="h1">
+            <div>
+                h1</div>
+            <div>
+                h2</div>
+        </div>
+        <div>
+            <div>
+                hh2</div>
+        </div>
+    </div>
+    <div id="v2">
+        <div>
+            h3</div>
+        <div>
+            h4</div>
+    </div>
 </div>

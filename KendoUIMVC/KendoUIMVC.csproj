@@ -33,34 +33,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxMin">
-      <HintPath>..\packages\AjaxMin.4.48.4489.28432\lib\net20\AjaxMin.dll</HintPath>
-    </Reference>
-    <Reference Include="Combres">
-      <HintPath>..\packages\combres.2.2.2.6\lib\net40\Combres.dll</HintPath>
-    </Reference>
-    <Reference Include="Combres.Mvc">
-      <HintPath>..\packages\combres.mvc.2.2.2.6\lib\net40\Combres.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="dotless.Core">
-      <HintPath>..\packages\dotless.1.3.0.2\lib\dotless.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="EcmaScript.NET.modified">
-      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\EcmaScript.NET.modified.dll</HintPath>
-    </Reference>
-    <Reference Include="Fasterflect">
-      <HintPath>..\packages\fasterflect.2.1.0\lib\net40\Fasterflect.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.1.2.11\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\libs\Json\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="ServiceStack, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.3.9.32\lib\net35\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.32\lib\net35\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.FluentValidation.Mvc3">
+      <HintPath>..\packages\ServiceStack.Mvc.3.9.32\lib\net40\ServiceStack.FluentValidation.Mvc3.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.3.9.32\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.32\lib\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.Oracle">
+      <HintPath>..\packages\ServiceStack.OrmLite.Oracle.3.9.28\lib\ServiceStack.OrmLite.Oracle.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.ServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.3.9.32\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.3.9.32\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -89,18 +94,16 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="WebActivator">
-      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
-    </Reference>
-    <Reference Include="Yahoo.Yui.Compressor">
-      <HintPath>..\packages\YUICompressor.NET.1.7.1.0\lib\net35\Yahoo.Yui.Compressor.dll</HintPath>
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\combres.xml" />
-    <Content Include="App_Data\combres_full_with_annotation.xml" />
+    <Content Include="index.aspx" />
+    <Content Include="jqunback-1.51.min.js" />
     <Content Include="kendoui\js\cultures\kendo.culture.zh-CHS.min.js" />
-    <Content Include="kendoui\js\jquery.min.js" />
+    <Content Include="kendoui\js\jquery-1.8.3.min.js" />
     <Content Include="kendoui\js\kendo.web.min.js" />
     <Content Include="kendoui\styles\Default\editor.png" />
     <Content Include="kendoui\styles\Default\imagebrowser.png" />
@@ -109,11 +112,13 @@
     <Content Include="kendoui\styles\Default\slider-h.gif" />
     <Content Include="kendoui\styles\Default\slider-v.gif" />
     <Content Include="kendoui\styles\Default\sprite.png" />
+    <Content Include="kendoui\styles\kendo.bootstrap.min.css" />
     <Content Include="kendoui\styles\kendo.common.css" />
     <Content Include="kendoui\styles\kendo.common.min.css" />
     <Content Include="kendoui\styles\kendo.default.min.css" />
     <Content Include="kendoui\styles\kendo.silver.css" />
     <Content Include="kendoui\styles\kendo.silver.min.css" />
+    <Content Include="kendoui\styles\kendo.uniform.min.css" />
     <Content Include="kendoui\styles\Silver\editor.png" />
     <Content Include="kendoui\styles\Silver\imagebrowser.png" />
     <Content Include="kendoui\styles\Silver\loading-image.gif" />
@@ -123,6 +128,7 @@
     <Content Include="kendoui\styles\Silver\sprite.png" />
     <Content Include="kendoui\styles\textures\glass.png" />
     <Content Include="kendoui\styles\textures\highlight.png" />
+    <Content Include="README.txt" />
     <Content Include="Scripts\index\form.js" />
     <Content Include="Scripts\index\home.js" />
     <Content Include="Scripts\index\mvvm.js" />
@@ -132,8 +138,56 @@
     <Content Include="Styles\index.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <None Include="combres.readme" />
     <None Include="Views\Home\MvvmDataSource.cshtml" />
+    <Content Include="Styles\yaml\add-ons\accessible-tabs\jquery.tabs.js" />
+    <Content Include="Styles\yaml\add-ons\accessible-tabs\tabs.css" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\external_link.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\hcalendar.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\hcard.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-geo.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hatom.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-haudio.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcalendar-add.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcalendar-download.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcalendar.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcard-add.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcard-download.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hcard.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-hresume.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-rel-tag.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\icon-xfn.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-child.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-colleague-met.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-colleague.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-friend-met.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-friend.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-me.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-parent.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-small.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-spouse.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-sweetheart-met.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\icons\xfn\xfn-sweetheart.png" />
+    <Content Include="Styles\yaml\add-ons\microformats\microformats.css" />
+    <Content Include="Styles\yaml\add-ons\rtl-support\core\base-rtl.css" />
+    <Content Include="Styles\yaml\add-ons\rtl-support\core\base-rtl.min.css" />
+    <Content Include="Styles\yaml\add-ons\rtl-support\navigation\hlist-rtl.css" />
+    <Content Include="Styles\yaml\add-ons\rtl-support\navigation\vlist-rtl.css" />
+    <Content Include="Styles\yaml\add-ons\rtl-support\screen\typography-rtl.css" />
+    <Content Include="Styles\yaml\add-ons\syncheight\jquery.syncheight.js" />
+    <Content Include="Styles\yaml\core\base.css" />
+    <Content Include="Styles\yaml\core\base.min.css" />
+    <Content Include="Styles\yaml\core\iehacks.css" />
+    <Content Include="Styles\yaml\core\iehacks.min.css" />
+    <Content Include="Styles\yaml\core\js\yaml-focusfix.js" />
+    <Content Include="Styles\yaml\forms\gray-theme.css" />
+    <Content Include="Styles\yaml\navigation\hlist.css" />
+    <Content Include="Styles\yaml\navigation\vlist.css" />
+    <Content Include="Styles\yaml\print\print.css" />
+    <Content Include="Styles\yaml\screen\grid-960-12.css" />
+    <Content Include="Styles\yaml\screen\grid-960-16.css" />
+    <Content Include="Styles\yaml\screen\screen-FULLPAGE-layout.css" />
+    <Content Include="Styles\yaml\screen\screen-PAGE-layout.css" />
+    <Content Include="Styles\yaml\screen\typography.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -143,15 +197,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Combres.cs" />
+    <Compile Include="App_Start\AppHost.cs" />
+    <Compile Include="App_Start\WebServiceExamples.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
