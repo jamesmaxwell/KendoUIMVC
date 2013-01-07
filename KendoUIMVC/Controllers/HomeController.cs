@@ -5,11 +5,20 @@ using System.Web;
 using System.Text;
 using System.Web.Mvc;
 using KendoUIMVC.Models;
+using XRisk;
 
 namespace KendoUIMVC.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IXRiskServices _services;
+
+        public HomeController(
+            IXRiskServices services)
+        {
+            _services = services;
+        }
+
         public ActionResult Index()
         {
             //ViewBag.Message = "欢迎使用 ASP.NET MVC!";
@@ -24,7 +33,7 @@ namespace KendoUIMVC.Controllers
 
         public ActionResult FormDemo()
         {
-            return View();
+            return View(_services.WorkContext.HttpContext.Timestamp.ToString());
         }
 
         public ActionResult GridDemo()
@@ -43,7 +52,7 @@ namespace KendoUIMVC.Controllers
         }
 
         [HttpGet]
-        public JsonResult User(int id,string Name)
+        public new JsonResult User(int id, string Name)
         {
             return Json(new User() { Id = id, Name = string.Format("junwei.胡_{0}", id), Birthday = new DateTime(1968, 9, 21), Password = "123", Sex = true, Weight = 66d, Email = "junwei.hu@xquant.com" }, JsonRequestBehavior.AllowGet);
         }

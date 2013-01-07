@@ -1,6 +1,5 @@
 ﻿@{
     ViewBag.Title = "Form Demo";
-    Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
 @section script{
     <script>
@@ -11,6 +10,7 @@
         });
     </script>
 }
+<form id="userForm">
 <div id="formMain" class="k-header formMain">
     <ul id="menu">
         <li>
@@ -26,7 +26,7 @@
         <li>
             <label for="sex">
                 性&nbsp;&nbsp;别：</label>
-            <input id="sex" name="sex" style="width:80px;"/>
+            <input id="sex" name="sex" style="width: 80px;" />
         </li>
         <li>
             <label for="birthday">
@@ -36,12 +36,12 @@
         <li>
             <label for="weight">
                 体&nbsp;&nbsp;重：</label>
-            <input id="weight" name="weight" type="number" value="66" style="width:80px;" /></li>
+            <input id="weight" name="weight" type="number" value="66" style="width: 80px;" /></li>
         <li>
             <label for="email">
                 Email:</label>
-            <input id="email" name="email" type="email" style="width:230px;" class="k-textbox" placeholder="e.g. myname@example.net"
-                required data-email-msg="Email格式无效" />
+            <input id="email" name="email" type="email" style="width: 230px;" class="k-textbox"
+                placeholder="e.g. myname@example.net" required data-email-msg="Email格式无效" />
         </li>
     </ul>
     <div class="buttonPane">
@@ -49,8 +49,10 @@
             确定</button>
         <button class="k-button" id="cancel">
             取消</button>
+            @Model.ToString()
     </div>
 </div>
+</form>
 <div id="formMain2" class="k-header formMain">
     <div id="result">
     </div>

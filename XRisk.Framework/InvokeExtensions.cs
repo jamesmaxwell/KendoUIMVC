@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using XRisk.Security;
+using XRisk.Logging;
+using XRisk.Exceptions;
+
+namespace XRisk
+{
+
+    public static class InvokeExtensions
+    {
+
+        /// <summary>
+        /// Safely invoke methods by catching non fatal exceptions and logging them
+        /// </summary>
+        public static void Invoke<TEvents>(this IEnumerable<TEvents> events, Action<TEvents> dispatch, ILogger logger)
+        {
+            foreach (var sink in events)
+            {
+                try
+                {
+                    dispatch(sink);
+                }
+                catch (Exception ex)
+                {
+                    if (IsLogged(ex))
+                    {
+                        logger.Error(ex, "{2} thrown from {0} by {1}",
+                            typeof(TEvents).Name,
+                            sink.GetType().FullName,
+                            ex.GetType().Name);
+                    }
+
+                    if (ex.IsFatal())
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
+        private static bool IsLogged(Exception ex)
+        {
+            return ex is OrchardSecurityException || !ex.IsFatal();
+        }
+    }
+}

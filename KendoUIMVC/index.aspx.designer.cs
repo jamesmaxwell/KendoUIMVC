@@ -10,7 +10,7 @@
 namespace KendoUIMVC {
     
     
-    public partial class index {
+    public partial class Index {
         
         /// <summary>
         /// form1 控件。

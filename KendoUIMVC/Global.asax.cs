@@ -6,6 +6,18 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Funq;
+using ServiceStack.Mvc;
+using XRisk;
+using XRisk.Data;
+using XRisk.Settings;
+using XRisk.Mvc;
+using XRisk.Environment;
+using XRisk.Events;
+using XRisk.Exceptions;
+using XRisk.Services;
+using XRisk.Security;
+using XRisk.UI.Notify;
 
 namespace KendoUIMVC
 {
@@ -36,6 +48,30 @@ namespace KendoUIMVC
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            var container = new Funq.Container();
+
+            container.RegisterAs<WorkContextAccessor, IWorkContextAccessor>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<XRiskServices, IXRiskServices>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<DefaultEventBus, IEventBus>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<HttpContextAccessor, IHttpContextAccessor>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<DefaultExceptionPolicy, IExceptionPolicy>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<Authorizer, IAuthorizer>().ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<RolesBasedAuthorizationService, IAuthorizationService>()
+                     .ReusedWithin(ReuseScope.Container);
+            container.RegisterAs<Notifier, INotifier>().ReusedWithin(ReuseScope.Container);
+
+            container.RegisterAs<Clock, IClock>().ReusedWithin(ReuseScope.Container);
+
+            container.RegisterAs<OracleConnectionLocator, IConnectionLocator>().ReusedWithin(ReuseScope.None);
+            container.Register<IWorkContextStateProviderComposite>(c => new WorkContextStateProviderComposite(
+                                                                            new CurrentSiteWorkContext(
+                                                                                c.TryResolve<ISiteService>()),
+                                                                            new HttpContextWorkContext(
+                                                                                c.TryResolve<IHttpContextAccessor>())))
+                                                                                .ReusedWithin(ReuseScope.Request);
+
+            ControllerBuilder.Current.SetControllerFactory(new FunqControllerFactory(container));
         }
 
         protected void Application_BeginRequest(object src, EventArgs e)

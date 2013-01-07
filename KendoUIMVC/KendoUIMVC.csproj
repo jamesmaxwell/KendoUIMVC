@@ -32,7 +32,29 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\KendoUIMVC.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EcmaScript.NET">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -42,30 +64,31 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\ServiceStack.3.9.32\lib\net35\ServiceStack.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Common, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ServiceStack.Common, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ServiceStack.Common.3.9.32\lib\net35\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Common.3.9.33\lib\net35\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.FluentValidation.Mvc3">
       <HintPath>..\packages\ServiceStack.Mvc.3.9.32\lib\net40\ServiceStack.FluentValidation.Mvc3.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Interfaces, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ServiceStack.Common.3.9.32\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Common.3.9.33\lib\net35\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.OrmLite, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ServiceStack.OrmLite, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.3.9.32\lib\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.OrmLite.Oracle.3.9.33\lib\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.OrmLite.Oracle">
-      <HintPath>..\packages\ServiceStack.OrmLite.Oracle.3.9.28\lib\ServiceStack.OrmLite.Oracle.dll</HintPath>
+    <Reference Include="ServiceStack.OrmLite.Oracle, Version=1.0.4751.4477, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.OrmLite.Oracle.3.9.33\lib\ServiceStack.OrmLite.Oracle.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.ServiceInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.3.9.32\lib\net35\ServiceStack.ServiceInterface.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text, Version=3.9.32.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ServiceStack.Text, Version=3.9.33.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\ServiceStack.Text.3.9.32\lib\net35\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\packages\ServiceStack.Text.3.9.33\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -98,13 +121,39 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
     </Reference>
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.2.2.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor.Build.MsBuild">
+      <HintPath>..\packages\YUICompressor.NET.MSBuild.2.2.1.0\lib\NET20\Yahoo.Yui.Compressor.Build.MsBuild.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />
-    <Content Include="jqunback-1.51.min.js" />
     <Content Include="kendoui\js\cultures\kendo.culture.zh-CHS.min.js" />
     <Content Include="kendoui\js\jquery-1.8.3.min.js" />
     <Content Include="kendoui\js\kendo.web.min.js" />
+    <Content Include="kendoui\styles\Black\editor.png" />
+    <Content Include="kendoui\styles\Black\imagebrowser.png" />
+    <Content Include="kendoui\styles\Black\loading-image.gif" />
+    <Content Include="kendoui\styles\Black\loading.gif" />
+    <Content Include="kendoui\styles\Black\slider-h.gif" />
+    <Content Include="kendoui\styles\Black\slider-v.gif" />
+    <Content Include="kendoui\styles\Black\sprite.png" />
+    <Content Include="kendoui\styles\BlueOpal\editor.png" />
+    <Content Include="kendoui\styles\BlueOpal\imagebrowser.png" />
+    <Content Include="kendoui\styles\BlueOpal\loading-image.gif" />
+    <Content Include="kendoui\styles\BlueOpal\loading.gif" />
+    <Content Include="kendoui\styles\BlueOpal\slider-h.gif" />
+    <Content Include="kendoui\styles\BlueOpal\slider-v.gif" />
+    <Content Include="kendoui\styles\BlueOpal\sprite.png" />
+    <Content Include="kendoui\styles\Bootstrap\editor.png" />
+    <Content Include="kendoui\styles\Bootstrap\imagebrowser.png" />
+    <Content Include="kendoui\styles\Bootstrap\loading-image.gif" />
+    <Content Include="kendoui\styles\Bootstrap\loading.gif" />
+    <Content Include="kendoui\styles\Bootstrap\slider-h.gif" />
+    <Content Include="kendoui\styles\Bootstrap\slider-v.gif" />
+    <Content Include="kendoui\styles\Bootstrap\sprite.png" />
     <Content Include="kendoui\styles\Default\editor.png" />
     <Content Include="kendoui\styles\Default\imagebrowser.png" />
     <Content Include="kendoui\styles\Default\loading-image.gif" />
@@ -112,13 +161,48 @@
     <Content Include="kendoui\styles\Default\slider-h.gif" />
     <Content Include="kendoui\styles\Default\slider-v.gif" />
     <Content Include="kendoui\styles\Default\sprite.png" />
+    <Content Include="kendoui\styles\HighContrast\editor.png" />
+    <Content Include="kendoui\styles\HighContrast\imagebrowser.png" />
+    <Content Include="kendoui\styles\HighContrast\loading-image.gif" />
+    <Content Include="kendoui\styles\HighContrast\loading.gif" />
+    <Content Include="kendoui\styles\HighContrast\slider-h.gif" />
+    <Content Include="kendoui\styles\HighContrast\slider-v.gif" />
+    <Content Include="kendoui\styles\HighContrast\sprite.png" />
+    <Content Include="kendoui\styles\kendo.black.min.css" />
+    <Content Include="kendoui\styles\kendo.blueopal.min.css" />
     <Content Include="kendoui\styles\kendo.bootstrap.min.css" />
     <Content Include="kendoui\styles\kendo.common.css" />
     <Content Include="kendoui\styles\kendo.common.min.css" />
     <Content Include="kendoui\styles\kendo.default.min.css" />
+    <Content Include="kendoui\styles\kendo.highcontrast.min.css" />
+    <Content Include="kendoui\styles\kendo.metro.min.css" />
+    <Content Include="kendoui\styles\kendo.metroblack.min.css" />
+    <Content Include="kendoui\styles\kendo.moonlight.min.css" />
+    <Content Include="kendoui\styles\kendo.rtl.min.css" />
     <Content Include="kendoui\styles\kendo.silver.css" />
     <Content Include="kendoui\styles\kendo.silver.min.css" />
     <Content Include="kendoui\styles\kendo.uniform.min.css" />
+    <Content Include="kendoui\styles\MetroBlack\editor.png" />
+    <Content Include="kendoui\styles\MetroBlack\imagebrowser.png" />
+    <Content Include="kendoui\styles\MetroBlack\loading-image.gif" />
+    <Content Include="kendoui\styles\MetroBlack\loading.gif" />
+    <Content Include="kendoui\styles\MetroBlack\slider-h.gif" />
+    <Content Include="kendoui\styles\MetroBlack\slider-v.gif" />
+    <Content Include="kendoui\styles\MetroBlack\sprite.png" />
+    <Content Include="kendoui\styles\Metro\editor.png" />
+    <Content Include="kendoui\styles\Metro\imagebrowser.png" />
+    <Content Include="kendoui\styles\Metro\loading-image.gif" />
+    <Content Include="kendoui\styles\Metro\loading.gif" />
+    <Content Include="kendoui\styles\Metro\slider-h.gif" />
+    <Content Include="kendoui\styles\Metro\slider-v.gif" />
+    <Content Include="kendoui\styles\Metro\sprite.png" />
+    <Content Include="kendoui\styles\Moonlight\editor.png" />
+    <Content Include="kendoui\styles\Moonlight\imagebrowser.png" />
+    <Content Include="kendoui\styles\Moonlight\loading-image.gif" />
+    <Content Include="kendoui\styles\Moonlight\loading.gif" />
+    <Content Include="kendoui\styles\Moonlight\slider-h.gif" />
+    <Content Include="kendoui\styles\Moonlight\slider-v.gif" />
+    <Content Include="kendoui\styles\Moonlight\sprite.png" />
     <Content Include="kendoui\styles\Silver\editor.png" />
     <Content Include="kendoui\styles\Silver\imagebrowser.png" />
     <Content Include="kendoui\styles\Silver\loading-image.gif" />
@@ -126,8 +210,40 @@
     <Content Include="kendoui\styles\Silver\slider-h.gif" />
     <Content Include="kendoui\styles\Silver\slider-v.gif" />
     <Content Include="kendoui\styles\Silver\sprite.png" />
+    <Content Include="kendoui\styles\textures\brushed-metal.png" />
+    <Content Include="kendoui\styles\textures\dots1.png" />
+    <Content Include="kendoui\styles\textures\dots10.png" />
+    <Content Include="kendoui\styles\textures\dots11.png" />
+    <Content Include="kendoui\styles\textures\dots12.png" />
+    <Content Include="kendoui\styles\textures\dots13.png" />
+    <Content Include="kendoui\styles\textures\dots2.png" />
+    <Content Include="kendoui\styles\textures\dots3.png" />
+    <Content Include="kendoui\styles\textures\dots4.png" />
+    <Content Include="kendoui\styles\textures\dots5.png" />
+    <Content Include="kendoui\styles\textures\dots6.png" />
+    <Content Include="kendoui\styles\textures\dots7.png" />
+    <Content Include="kendoui\styles\textures\dots8.png" />
+    <Content Include="kendoui\styles\textures\dots9.png" />
+    <Content Include="kendoui\styles\textures\glass-lighter.png" />
     <Content Include="kendoui\styles\textures\glass.png" />
     <Content Include="kendoui\styles\textures\highlight.png" />
+    <Content Include="kendoui\styles\textures\leather1.png" />
+    <Content Include="kendoui\styles\textures\leather2.png" />
+    <Content Include="kendoui\styles\textures\noise.png" />
+    <Content Include="kendoui\styles\textures\stripe1.png" />
+    <Content Include="kendoui\styles\textures\stripe2.png" />
+    <Content Include="kendoui\styles\textures\stripe3.png" />
+    <Content Include="kendoui\styles\textures\stripe4.png" />
+    <Content Include="kendoui\styles\textures\stripe5.png" />
+    <Content Include="kendoui\styles\textures\stripe6.png" />
+    <Content Include="kendoui\styles\Uniform\editor.png" />
+    <Content Include="kendoui\styles\Uniform\imagebrowser.png" />
+    <Content Include="kendoui\styles\Uniform\loading-image.gif" />
+    <Content Include="kendoui\styles\Uniform\loading.gif" />
+    <Content Include="kendoui\styles\Uniform\slider-h.gif" />
+    <Content Include="kendoui\styles\Uniform\slider-v.gif" />
+    <Content Include="kendoui\styles\Uniform\sprite.png" />
+    <Content Include="MSBuild.xml" />
     <Content Include="README.txt" />
     <Content Include="Scripts\index\form.js" />
     <Content Include="Scripts\index\home.js" />
@@ -138,6 +254,7 @@
     <Content Include="Styles\index.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="App.config" />
     <None Include="Views\Home\MvvmDataSource.cshtml" />
     <Content Include="Styles\yaml\add-ons\accessible-tabs\jquery.tabs.js" />
     <Content Include="Styles\yaml\add-ons\accessible-tabs\tabs.css" />
@@ -189,10 +306,10 @@
     <Content Include="Styles\yaml\screen\screen-PAGE-layout.css" />
     <Content Include="Styles\yaml\screen\typography.css" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
+    <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Web.Release.config">
+    <Content Include="Web.DEV.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
@@ -231,10 +348,17 @@
     <Content Include="Views\Home\GridDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\FrameLayout.cshtml" />
+    <Content Include="Views\Home\MvvmDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\MvvmDemo.cshtml" />
+    <ProjectReference Include="..\XRisk.Core\XRisk.Core.csproj">
+      <Project>{E5B554A3-A37A-4BE5-806E-644D62B6030D}</Project>
+      <Name>XRisk.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRisk.Framework\XRisk.Framework.csproj">
+      <Project>{BCD4083C-232C-440E-B069-C287A521272A}</Project>
+      <Name>XRisk.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -264,4 +388,81 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <UsingTask TaskName="CssCompressorTask" AssemblyFile=".\yui\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <UsingTask TaskName="JavaScriptCompressorTask" AssemblyFile=".\yui\Yahoo.Yui.Compressor.Build.MsBuild.dll" />
+  <!-- Define the output locations. These can be set via the msbuild command line using
+         /p:OutputFile=$(TargetDir)../whatever...
+         If they are not supplied or are empty, then we the value whatever is supplied, below.
+    -->
+  <Target Name="Minify">
+    <!--           
+            For both tasks, all Properties except SourceFiles and OutputFile are optional
+        
+            CssCompressorTask:
+                SourceFiles: An ITaskItem[] list of files to compress.
+                             Add <CompressionType> meta data to individual items to override the default compression type set for the task
+                DeleteSourceFiles: True | False (default).  Set True if you want to delete the source files after compressing
+                CompressionType: Standard (default) | None.  None => Concatenate files only.
+                EncodingType: ASCII, BigEndianUnicode, Unicode, UTF32, UTF7, UTF8, Default (default).
+                LineBreakPosition: The position where a line feed is appened when the next semicolon is reached. 
+                                   Default is -1 (never add a line break).
+                                   0 (zero) means add a line break after every semicolon. (This might help with debugging troublesome files).          
+                LoggingType: Info (default) | Debug | None.
+                PreserveComments: True | False (default).  Set True if you wish to preserve css comments.  False will remove them except ones marked with "!" 
+
+            JavaScriptCompressorTask:
+                SourceFiles: An ITaskItem[] list of files to compress.
+                             Add <CompressionType> meta data to individual items to override the default compression type set for the task
+                DeleteSourceFiles: True | False (default).  Set True if you want to delete the source files after compressing
+                CompressionType: Standard (default) | None.  None => Concatenate files only.
+                EncodingType: ASCII, BigEndianUnicode, Unicode, UTF32, UTF7, UTF8, Default (default).
+                LineBreakPosition: The position where a line feed is appened when the next semicolon is reached. 
+                                   Default is -1 (never add a line break).
+                                   0 (zero) means add a line break after every semicolon. (This might help with debugging troublesome files).          
+                LoggingType: Info (default) | Debug | None.  Debug also lists javascript verbose warnings, if there are any (and there usually is :P ).
+                ObfuscateJavaScript: True (default) | False.  True => Obfuscate function and variable names
+                PreserveAllSemicolons: True | False (default).  True => preserve redundant semicolons (e.g. after a '}'
+                DisableOptimizations: True | False (default).
+                ThreadCulture: The culture you want the thread to run under. This affects the treatment of numbers etc - e.g. 9.00 could be output as 9,00.
+                               Default value is the Invariant Culture
+                IsEvalIgnored: True | False (default).  True => compress any functions that contain 'eval'. Default is False, which means a function that contains
+                               'eval' will NOT be compressed. It's deemed risky to compress a function containing 'eval'. That said,
+                               if the usages are deemed safe this check can be disabled by setting this value to True.
+        -->
+    <ItemGroup>
+      <!-- Single files, listed in order of dependency -->
+      <CssFiles Include="Styles/index.css" />
+      <JavaScriptFiles Include="Scripts/sea-debug.js" />
+    </ItemGroup>
+    <CssCompressorTask SourceFiles="@(CssFiles)" DeleteSourceFiles="false" OutputFile="Minified.css" CompressionType="Standard" LoggingType="Info" PreserveComments="false" LineBreakPosition="-1" />
+    <!-- The version below produces the exact same results -->
+    <!--
+      <CssCompressorTask
+            SourceFiles="@(CssFiles)"
+            OutputFile="Minified.css"
+       />
+       -->
+    <!-- The version below will output one minified file per input css file - ie
+           StylesheetSample1.css.min StylesheetSample2.css.min, and StylesheetSample3.css.min-->
+    <!--
+      <CssCompressorTask
+            SourceFiles="@(CssFiles)"
+            DeleteSourceFiles="false"
+            OutputFile="%(CssFiles.Identity).min"
+            CompressionType="Standard"
+            LoggingType="Info"
+            PreserveComments="false"
+            LineBreakPosition="-1"
+      />
+      -->
+    <JavaScriptCompressorTask SourceFiles="@(JavaScriptFiles)" DeleteSourceFiles="false" OutputFile="Minified.js" CompressionType="Standard" ObfuscateJavaScript="True" PreserveAllSemicolons="False" DisableOptimizations="No" EncodingType="Default" LineBreakPosition="-1" LoggingType="Info" ThreadCulture="en-au" IsEvalIgnored="false" />
+    <!-- The version below produces the exact same results -->
+    <!--
+      <JavaScriptCompressorTask
+          SourceFiles="@(JavaScriptFiles)"
+          DeleteSourceFiles="false"
+          OutputFile="Minified.js"
+       />
+       -->
+  </Target>
 </Project>

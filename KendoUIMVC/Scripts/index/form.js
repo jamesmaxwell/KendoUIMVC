@@ -35,7 +35,10 @@
                 '性别：' + sex.text() + '<br/>' +
                 '生日：' + kendo.toString(birthday.value(), 'yyyy-MM-dd') + '<br/>' +
                 '体重：' + weight.value()
-            );
+                );
+
+                alert($('#userForm').serialize());
+                return false;
             } else {
                 $('#result').html('请输入合法的值');
             }
