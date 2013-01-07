@@ -25,6 +25,18 @@ namespace XRisk.Mvc
             {
                 return null;
             }
+
+            try
+            {
+                if (httpContext.Request == null)
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
             return httpContext;
         }
     }

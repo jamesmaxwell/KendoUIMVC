@@ -33,7 +33,7 @@ namespace KendoUIMVC.Controllers
 
         public ActionResult FormDemo()
         {
-            return View(_services.WorkContext.HttpContext.Timestamp.ToString());
+            return View(HttpContext.Timestamp);
         }
 
         public ActionResult GridDemo()

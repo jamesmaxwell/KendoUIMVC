@@ -7,14 +7,11 @@ namespace XRisk.Environment
 {
     public class XRiskServices : IXRiskServices
     {
-        private readonly IWorkContextAccessor _workContextAccessor;
 
         public XRiskServices(
             IAuthorizer authorizer,
-            INotifier notifier,
-            IWorkContextAccessor workContextAccessor)
+            INotifier notifier)
         {
-            _workContextAccessor = workContextAccessor;
             Authorizer = authorizer;
             Notifier = notifier;
         }
@@ -22,6 +19,5 @@ namespace XRisk.Environment
         //public ITransactionManager TransactionManager { get; private set; }
         public IAuthorizer Authorizer { get; private set; }
         public INotifier Notifier { get; private set; }
-        public WorkContext WorkContext { get { return _workContextAccessor.GetContext(); } }
     }
 }

@@ -14,7 +14,5 @@ namespace XRisk
         //ITransactionManager TransactionManager { get; }
         IAuthorizer Authorizer { get; }
         INotifier Notifier { get; }
-
-        WorkContext WorkContext { get; }
     }
 }

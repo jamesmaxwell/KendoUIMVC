@@ -44,16 +44,13 @@ namespace XRisk.Security
     {
         private readonly IAuthorizationService _authorizationService;
         private readonly INotifier _notifier;
-        private readonly IWorkContextAccessor _workContextAccessor;
 
         public Authorizer(
             IAuthorizationService authorizationService,
-            INotifier notifier,
-            IWorkContextAccessor workContextAccessor)
+            INotifier notifier)
         {
             _authorizationService = authorizationService;
             _notifier = notifier;
-            _workContextAccessor = workContextAccessor;
         }
 
         public bool Authorize(Permission permission)
@@ -73,24 +70,25 @@ namespace XRisk.Security
 
         public bool Authorize(Permission permission, IContent content, string message)
         {
-            if (_authorizationService.TryCheckAccess(permission, _workContextAccessor.GetContext().CurrentUser, content))
-                return true;
+            return true;
+            //if (_authorizationService.TryCheckAccess(permission, _workContextAccessor.GetContext().CurrentUser, content))
+            //    return true;
 
-            if (message != null)
-            {
-                if (_workContextAccessor.GetContext().CurrentUser == null)
-                {
-                    _notifier.Error(string.Format("{0}. Anonymous users do not have {1} permission.",
-                                      message, permission.Name));
-                }
-                else
-                {
-                    _notifier.Error(string.Format("{0}. Current user, {2}, does not have {1} permission.",
-                                      message, permission.Name, _workContextAccessor.GetContext().CurrentUser.UserNo));
-                }
-            }
+            //if (message != null)
+            //{
+            //    if (_workContextAccessor.GetContext().CurrentUser == null)
+            //    {
+            //        _notifier.Error(string.Format("{0}. Anonymous users do not have {1} permission.",
+            //                          message, permission.Name));
+            //    }
+            //    else
+            //    {
+            //        _notifier.Error(string.Format("{0}. Current user, {2}, does not have {1} permission.",
+            //                          message, permission.Name, _workContextAccessor.GetContext().CurrentUser.UserNo));
+            //    }
+            //}
 
-            return false;
+            //return false;
         }
 
     }

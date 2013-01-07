@@ -82,8 +82,6 @@
     <Compile Include="Data\TransactionManager.cs" />
     <Compile Include="Environment\WorkContextModule.cs" />
     <Compile Include="Environment\XRiskServices.cs" />
-    <Compile Include="Environment\WorkContextAccessor.cs" />
-    <Compile Include="Environment\WorkContextImplementation.cs" />
     <Compile Include="Environment\WorkContextProperty.cs" />
     <Compile Include="Events\DefaultEventBus.cs" />
     <Compile Include="Events\EventsInterceptor.cs" />
@@ -94,7 +92,6 @@
     <Compile Include="Exceptions\IExceptionPolicy.cs" />
     <Compile Include="IDependency.cs" />
     <Compile Include="InvokeExtensions.cs" />
-    <Compile Include="IWorkContextAccessor.cs" />
     <Compile Include="IXRiskServices.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILoggerFactory.cs" />
@@ -103,6 +100,7 @@
     <Compile Include="Logging\LoggingExtensions.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Logging\NullLoggerFactory.cs" />
+    <Compile Include="Mvc\IHttpContextAccessor.cs" />
     <Compile Include="Security\Authorizer.cs" />
     <Compile Include="Security\CreateUserParams.cs" />
     <Compile Include="Security\IAuthenticationService.cs" />
@@ -118,7 +116,6 @@
     <Compile Include="Security\XRiskSecurityException.cs" />
     <Compile Include="Services\Clock.cs" />
     <Compile Include="Services\IClock.cs" />
-    <Compile Include="Settings\CurrentSiteWorkContext.cs" />
     <Compile Include="Settings\ISite.cs" />
     <Compile Include="Settings\ISiteService.cs" />
     <Compile Include="Settings\ResourceDebugMode.cs" />
@@ -128,14 +125,12 @@
     <Compile Include="XRiskException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Extensions\ReadOnlyCollectionExtensions.cs" />
-    <Compile Include="Mvc\HttpContextWorkContext.cs" />
-    <Compile Include="Mvc\IHttpContextAccessor.cs" />
-    <Compile Include="WorkContext.cs" />
     <Compile Include="XRiskFatalException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
